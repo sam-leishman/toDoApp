@@ -1,0 +1,19 @@
+{
+  "name": "todoapp",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/styles:public/stylesheets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam-leishman/toDoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sam-leishman/toDoApp/issues"
+  },
+  "homepage": "https://github.com/sam-leishman/toDoApp#readme"
+}
