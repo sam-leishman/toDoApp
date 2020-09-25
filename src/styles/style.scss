@@ -1,9 +1,11 @@
+@use "colors";
+
 .my-sidebar {
-    background-color: #F49F0A;
+    background-color: colors.$tangerine;
     height: 100%;
 }
 
 .my-page {
-    background-color: #F08700;
+    background-color: colors.$orange-web;
     height: 100%;
 }
