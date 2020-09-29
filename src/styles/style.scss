@@ -1,11 +1,29 @@
 @use "colors";
+// Color Scheme:
+// #F08700 Tangerine (white text)
+// #F49F0A Orange Web
+// #EFCA08 Yellow Munsell
+// #2A324B Space Cadet (text color)
+// #68A691 Polished Pine
+
+.row {
+    height: 100vh;
+}
 
 .my-sidebar {
     background-color: colors.$tangerine;
-    height: 100%;
+    color: white;
+
+    .logo {
+        font-size: 40px;
+    }
 }
 
 .my-page {
     background-color: colors.$orange-web;
-    height: 100%;
+    color: colors.$space-cadet;
+
+    .current-date {
+        font-size: 30px;
+    }
 }

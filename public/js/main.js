@@ -14,3 +14,13 @@
 
 // let fruitList = document.getElementById("fruit-list");
 // fruitList.innerHTML = stuff;
+
+
+
+// =========================
+// Today's Date
+// =========================
+
+var today = new Date();
+var date = today.getDate() + today.getMonth();
+// document.getElementById("todaysDate").innerText = date;

@@ -1,11 +1,21 @@
+.row {
+  height: 100vh;
+}
+
 .my-sidebar {
   background-color: #F08700;
-  height: 100%;
+  color: white;
+}
+.my-sidebar .logo {
+  font-size: 40px;
 }
 
 .my-page {
   background-color: #F49F0A;
-  height: 100%;
+  color: #2A324B;
+}
+.my-page .current-date {
+  font-size: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

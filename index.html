@@ -21,25 +21,24 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-    <title>Hello, world!</title>
+    <title>Clever Title</title>
 </head>
 
-<!-- Color Scheme:
-#F08700 Tangerine (white text)
-#F49F0A Orange Web
-#EFCA08 Yellow Munsell
-#2A324B Space Cadet (text color)
-#68A691 Polished Pine -->
-
 <body>
-    <div class="row">
-        <div class="col-3">
-            <div class="my-sidebar"></div>
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="my-sidebar col-md-3">
+                    <div class="logo">Logo</div>
+                </div>
+                <div class="my-page col-md-9">
+                    <div id="todaysDate" class="current-date">Weekday, Date Month</div>
+                </div>
+            </div>
         </div>
-        <div class="col-9">
-            <div class="my-page"></div>
-        </div>
-    </div>
+    </main>
 </body>
+<!-- JavaScript -->
+<script type="text/javascript" src="./public/js/main.js"></script>
 
 </html>
