@@ -21,6 +21,18 @@
 // Today's Date
 // =========================
 
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
 var today = new Date();
-var date = today.getDate() + today.getMonth();
-// document.getElementById("todaysDate").innerText = date;
+
+// Weekday
+var weekday = weekdays[today.getDay()];
+document.getElementById("weekday").innerText = weekday;
+
+// Date
+document.getElementById("date").innerText = today.getDate();
+
+// Month
+var monthName = monthNames[today.getMonth()];
+document.getElementById("month").innerText = monthName;
