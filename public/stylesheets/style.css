@@ -1,20 +1,31 @@
-.row {
+main .row {
   height: 100vh;
 }
 
 .my-sidebar {
   background-color: #F08700;
-  color: white;
+  color: #E2FCEF;
 }
-.my-sidebar .logo {
-  font-size: 40px;
+.my-sidebar .lists {
+  border-bottom: 2px solid #E2FCEF;
+  padding: 10px 0;
+  margin-bottom: 20px;
 }
 
 .my-page {
   background-color: #F49F0A;
   color: #2A324B;
 }
-.my-page .current-date {
+.my-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-page .header .logo {
+  font-size: 40px;
+  color: #E2FCEF;
+}
+.my-page .header .current-date {
   font-size: 30px;
 }
 

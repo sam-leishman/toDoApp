@@ -4,18 +4,20 @@
 // #F49F0A Orange Web
 // #EFCA08 Yellow Munsell
 // #2A324B Space Cadet (text color)
-// #68A691 Polished Pine
+// #E2FCEF Honeydew
 
-.row {
+main .row {
     height: 100vh;
 }
 
 .my-sidebar {
     background-color: colors.$tangerine;
-    color: white;
+    color: colors.$honeydew;
 
-    .logo {
-        font-size: 40px;
+    .lists {
+        border-bottom: 2px solid colors.$honeydew;
+        padding: 10px 0;
+        margin-bottom: 20px;
     }
 }
 
@@ -23,7 +25,18 @@
     background-color: colors.$orange-web;
     color: colors.$space-cadet;
 
-    .current-date {
-        font-size: 30px;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            font-size: 40px;
+            color: colors.$honeydew;
+        }
+    
+        .current-date {
+            font-size: 30px;
+        }
     }
 }
