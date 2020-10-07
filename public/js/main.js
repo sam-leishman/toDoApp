@@ -36,3 +36,24 @@ document.getElementById("date").innerText = today.getDate();
 // Month
 var monthName = monthNames[today.getMonth()];
 document.getElementById("month").innerText = monthName;
+
+// =========================
+// Data Model
+// =========================
+
+// user
+    // id
+    // lists
+    // addNewList()
+// toDoList
+    // name
+    // todos
+    // addTodo(todo)
+    // removeTodo(todoId)
+    // editTodo(todoId)
+    // clearAllCompleted()
+// toDo
+    // text
+    // completed
+    // setCompleted()
+        // todo.completed = true;
