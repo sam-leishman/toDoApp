@@ -44,16 +44,51 @@ document.getElementById("month").innerText = monthName;
 // user
     // id
     // lists
-    // addNewList()
+    // addList(list)
+    // removeList(listId)
 // toDoList
     // name
     // todos
     // addTodo(todo)
     // removeTodo(todoId)
-    // editTodo(todoId)
-    // clearAllCompleted()
 // toDo
     // text
     // completed
     // setCompleted()
         // todo.completed = true;
+
+class User {
+    constructor(id) {
+        this.id = id;
+        this.lists = [];
+    }
+    addList(list) {
+        this.lists.push(list);
+    }
+    removeList(listId) {
+        this.lists = this.lists.filter(list => list.id != listId);
+    }
+}
+
+class ToDoList {
+    constructor(name) {
+        this.name = name;
+        this.todos = [];
+    }
+    addTodo(todo) {
+        this.todos.push(todo);
+    }
+    removeTodo(todoId) {
+        this.todos = this.todos.filter(todo => todo.id != todoId);
+    }
+}
+
+class ToDo {
+    constructor(text) {
+        this.text = text;
+        this.completed = false;
+    }
+    setCompleted() {
+        todo.completed = true;
+    }
+}
