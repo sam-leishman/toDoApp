@@ -17,6 +17,7 @@ main .row {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .my-sidebar #todoLists #todoListRemove {
   visibility: hidden;
@@ -43,6 +44,11 @@ main .row {
 }
 .my-page .header .current-date {
   font-size: 30px;
+}
+.my-page #listWindow {
+  height: 500px;
+  border: 2px solid #2A324B;
+  overflow-y: scroll;
 }
 
 /*# sourceMappingURL=style.css.map */

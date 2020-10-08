@@ -26,6 +26,7 @@ main .row {
         padding: 10px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
         #todoListRemove {
             visibility: hidden;
@@ -58,5 +59,11 @@ main .row {
         .current-date {
             font-size: 30px;
         }
+    }
+
+    #listWindow {
+        height: 500px;
+        border: 2px solid colors.$space-cadet;
+        overflow-y: scroll;
     }
 }

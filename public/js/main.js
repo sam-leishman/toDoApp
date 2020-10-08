@@ -51,39 +51,13 @@ document.getElementById("month").innerText = monthName;
     // todos
     // addTodo(todo)
     // removeTodo(todoId)
-// toDo
+// toDoItem
     // text
     // completed
     // setCompleted()
         // todo.completed = true;
 
-class User {
-    constructor(id) {
-        this.id = id;
-        this.lists = [];
-    }
-    addList(list) {
-        this.lists.push(list);
-    }
-    removeList(listId) {
-        this.lists = this.lists.filter(list => list.id != listId);
-    }
-}
-
-class ToDoList {
-    constructor(name) {
-        this.name = name;
-        this.todos = [];
-    }
-    addTodo(todo) {
-        this.todos.push(todo);
-    }
-    removeTodo(todoId) {
-        this.todos = this.todos.filter(todo => todo.id != todoId);
-    }
-}
-
-class ToDo {
+class ToDoItem {
     constructor(text) {
         this.text = text;
         this.completed = false;
@@ -92,3 +66,84 @@ class ToDo {
         todo.completed = true;
     }
 }
+
+class List {
+    constructor(name) {
+        this.name = name;
+        this.id = getNewId();
+        this.listItems = [];
+    }
+    addItem(list) {
+        this.listItems.push(list);
+    }
+}
+
+class ToDoList {
+    constructor(name) {
+        this.name = name;
+        this.todos = [];
+    }
+    addTodoList(todo) {
+        this.todos.push(todo);
+    }
+    getTodoList(chatId) {
+        return this.chats.find(chat => chat.id == chatId);
+    }
+    removeTodoList(todoId) {
+        this.todos = this.todos.filter(todo => todo.id != todoId);
+    }
+}
+
+
+
+function getNewId() {
+    return (Math.random() + Math.random()) * 1000;
+}
+
+
+
+const lists = new ToDoList();
+let currentList = new List('List 1');
+
+currentList.addItem(new ToDoItem('asdfghjkl')); // TEST ITEM
+
+printLists();
+printLists();
+
+function printList() {
+    let listHtml = '';
+    /*
+    for (let i = 0; i < chat.length; i++) {
+        chatHtml += 
+        `
+        <div>
+            <p>${chat[i].text}</p>
+            <p>${chat[i].username}</p>
+        </div>
+        `;
+    }
+    */
+    currentList.listItems.forEach(listItem => {
+        listHtml += `
+        <div class="message">
+            <p>${listItem.text}</p>
+        </div>
+        `;
+    });
+    document.getElementById("listWindow").innerHTML = listHtml;
+}
+
+function printLists() {
+    let listsHtml = '';
+
+    lists.lists.forEach(list => {
+        listsHtml +=
+        `
+        <div class="border">${list.name}</div>
+        `;
+    });
+
+    document.getElementById('todoLists').innerHTML = listsHtml;
+}
+
+printLists();
