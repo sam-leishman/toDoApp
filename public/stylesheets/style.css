@@ -45,8 +45,11 @@ main .row {
 .my-page .header .current-date {
   font-size: 30px;
 }
-.my-page #listWindow {
+.my-page .to-do-list {
   height: 500px;
+}
+.my-page .to-do-list #listWindow {
+  height: 100%;
   border: 2px solid #2A324B;
   overflow-y: scroll;
 }

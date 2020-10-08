@@ -61,9 +61,13 @@ main .row {
         }
     }
 
-    #listWindow {
+    .to-do-list {
         height: 500px;
-        border: 2px solid colors.$space-cadet;
-        overflow-y: scroll;
+
+        #listWindow {
+            height: 100%;
+            border: 2px solid colors.$space-cadet;
+            overflow-y: scroll;
+        }
     }
 }

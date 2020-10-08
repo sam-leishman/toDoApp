@@ -73,8 +73,8 @@ class List {
         this.id = getNewId();
         this.listItems = [];
     }
-    addItem(list) {
-        this.listItems.push(list);
+    addItem(item) {
+        this.listItems.push(item);
     }
 }
 
@@ -106,6 +106,7 @@ const lists = new ToDoList();
 let currentList = new List('List 1');
 
 currentList.addItem(new ToDoItem('asdfghjkl')); // TEST ITEM
+lists.addTodoList(new List('Test List')); // TEST LIST
 
 printLists();
 printLists();
@@ -123,10 +124,10 @@ function printList() {
         `;
     }
     */
-    currentList.listItems.forEach(listItem => {
+    currentList.listItems.forEach(toDoItem => {
         listHtml += `
-        <div class="message">
-            <p>${listItem.text}</p>
+        <div class="list-item">
+            <p>${toDoItem.text}</p>
         </div>
         `;
     });
@@ -136,14 +137,16 @@ function printList() {
 function printLists() {
     let listsHtml = '';
 
-    lists.lists.forEach(list => {
-        listsHtml +=
-        `
-        <div class="border">${list.name}</div>
+    lists.todos.forEach(list => {
+        listsHtml += `
+        ${list.name}
+        <div id="todoListRemove">
+            <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         `;
     });
 
     document.getElementById('todoLists').innerHTML = listsHtml;
 }
-
-printLists();
