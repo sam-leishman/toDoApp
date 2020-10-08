@@ -139,14 +139,32 @@ function printLists() {
 
     lists.todos.forEach(list => {
         listsHtml += `
-        ${list.name}
-        <div id="todoListRemove">
-            <button type="button" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="list">
+            ${list.name}
+            <div id="todoListRemove">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
         `;
     });
 
     document.getElementById('todoLists').innerHTML = listsHtml;
+}
+
+
+
+function addTodoList(event) {
+    if (event.key == 'Enter' || event.type == 'click') {
+        const listName = document.getElementById('newListName').value;
+        if (listName) {
+            const newList = new List(listName);
+            lists.addTodoList(newList);
+            currentList = newList;
+            document.getElementById('newListName').value = '';
+            printList();
+            printLists();
+        }
+    }
 }

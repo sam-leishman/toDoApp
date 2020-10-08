@@ -21,23 +21,29 @@ main .row {
     }
 
     #todoLists {
-        font-size: 20px;
-        border: 1px solid colors.$space-cadet;
-        padding: 10px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+
+        .list {
+            font-size: 20px;
+            border: 1px solid colors.$space-cadet;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:hover {
+                box-shadow: 0px 0px 5px black;
+    
+                #todoListRemove {
+                    visibility: visible;
+                }
+            }
+        }
 
         #todoListRemove {
             visibility: hidden;
-        }
-
-        &:hover {
-            box-shadow: 0px 0px 5px black;
-
-            #todoListRemove {
-                visibility: visible;
-            }
         }
     }
 }

@@ -12,21 +12,26 @@ main .row {
   margin-bottom: 20px;
 }
 .my-sidebar #todoLists {
+  display: flex;
+  flex-direction: column;
+}
+.my-sidebar #todoLists .list {
   font-size: 20px;
   border: 1px solid #2A324B;
   padding: 10px;
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.my-sidebar #todoLists #todoListRemove {
-  visibility: hidden;
-}
-.my-sidebar #todoLists:hover {
+.my-sidebar #todoLists .list:hover {
   box-shadow: 0px 0px 5px black;
 }
-.my-sidebar #todoLists:hover #todoListRemove {
+.my-sidebar #todoLists .list:hover #todoListRemove {
   visibility: visible;
+}
+.my-sidebar #todoLists #todoListRemove {
+  visibility: hidden;
 }
 
 .my-page {

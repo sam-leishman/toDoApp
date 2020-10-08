@@ -33,13 +33,20 @@
                         <h2>Lists</h2>
                     </div>
                     <div id="todoLists">
-                        <!-- List Name
-                        <div id="todoListRemove">
-                            <button type="button" class="close" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                        <!-- JavaScript HTML: -->
+                        <!-- <div class="list">
+                            List Name
+                            <div id="todoListRemove">
+                                <button type="button" class="close" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
                         </div> -->
                     </div>
+                    <div>
+                        <input id="newListName" onkeydown="addTodoList(event)">
+                        <button onclick="addTodoList(event)">Add</button>
+                      </div>
                 </div>
                 <div class="my-page col-md-9">
                     <div class="header">
