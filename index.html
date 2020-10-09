@@ -46,7 +46,7 @@
                     <div>
                         <input id="newListName" onkeydown="addTodoList(event)">
                         <button onclick="addTodoList(event)">Add</button>
-                      </div>
+                    </div>
                 </div>
                 <div class="my-page col-md-9">
                     <div class="header">
@@ -58,7 +58,18 @@
                         </div>
                     </div>
                     <div class="to-do-list">
-                        <div id="listWindow"></div>
+                        <div id="listWindow">
+                            <div id="todoItems">
+                                <!-- JavaScript HTML: -->
+                                <!-- <div class="list-item">
+                                    <p>${toDoItem.text}</p>
+                                </div> -->
+                            </div>
+                            <div>
+                                <input id="newListItem" onkeydown="addItem(event)">
+                                <button onclick="addItem(event)">Add</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,6 +77,7 @@
     </div>
 </body>
 <!-- JavaScript -->
+<script type="text/javascript" src="./public/js/classes.js"></script>
 <script type="text/javascript" src="./public/js/main.js"></script>
 
 </html>

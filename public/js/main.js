@@ -57,43 +57,6 @@ document.getElementById("month").innerText = monthName;
     // setCompleted()
         // todo.completed = true;
 
-class ToDoItem {
-    constructor(text) {
-        this.text = text;
-        this.completed = false;
-    }
-    setCompleted() {
-        todo.completed = true;
-    }
-}
-
-class List {
-    constructor(name) {
-        this.name = name;
-        this.id = getNewId();
-        this.listItems = [];
-    }
-    addItem(item) {
-        this.listItems.push(item);
-    }
-}
-
-class ToDoList {
-    constructor(name) {
-        this.name = name;
-        this.todos = [];
-    }
-    addTodoList(todo) {
-        this.todos.push(todo);
-    }
-    getTodoList(chatId) {
-        return this.chats.find(chat => chat.id == chatId);
-    }
-    removeTodoList(todoId) {
-        this.todos = this.todos.filter(todo => todo.id != todoId);
-    }
-}
-
 
 
 function getNewId() {
@@ -131,7 +94,7 @@ function printList() {
         </div>
         `;
     });
-    document.getElementById("listWindow").innerHTML = listHtml;
+    document.getElementById("todoItems").innerHTML = listHtml;
 }
 
 function printLists() {
@@ -167,4 +130,23 @@ function addTodoList(event) {
             printLists();
         }
     }
+}
+
+function addItem(event) {
+    if (event.key == 'Enter' || event.type == 'click') {
+        const itemName = document.getElementById('newListItem').value;
+        if (itemName) {
+            const newItem = new List(itemName);
+            lists.addItem(newItem);
+            currentList = newItem;
+            document.getElementById('newListItem').value = '';
+            printList();
+            printLists();
+        }
+    }
+}
+
+function selectChat(chatId) {
+    currentChat = chats.getChat(chatId);
+    printChat();
 }
