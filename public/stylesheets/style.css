@@ -57,6 +57,29 @@ main .row {
   height: 100%;
   border: 2px solid #2A324B;
   overflow-y: scroll;
+  padding: 20px;
+}
+.my-page .to-do-list #listWindow #todoItems {
+  display: flex;
+  flex-direction: column;
+}
+.my-page .to-do-list #listWindow #todoItems .list-item {
+  font-size: 20px;
+  border: 1px solid #2A324B;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-page .to-do-list #listWindow #todoItems .list-item:hover {
+  box-shadow: 0px 0px 5px black;
+}
+.my-page .to-do-list #listWindow #todoItems .list-item:hover #todoItemRemove {
+  visibility: visible;
+}
+.my-page .to-do-list #listWindow #todoItems #todoItemRemove {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */

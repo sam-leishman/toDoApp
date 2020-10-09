@@ -74,6 +74,34 @@ main .row {
             height: 100%;
             border: 2px solid colors.$space-cadet;
             overflow-y: scroll;
+            padding: 20px;
+
+            #todoItems {
+                display: flex;
+                flex-direction: column;
+        
+                .list-item {
+                    font-size: 20px;
+                    border: 1px solid colors.$space-cadet;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+        
+                    &:hover {
+                        box-shadow: 0px 0px 5px black;
+            
+                        #todoItemRemove {
+                            visibility: visible;
+                        }
+                    }
+                }
+        
+                #todoItemRemove {
+                    visibility: hidden;
+                }
+            }
         }
     }
 }

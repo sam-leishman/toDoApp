@@ -68,7 +68,7 @@ function getNewId() {
 const lists = new ToDoList();
 let currentList = new List('List 1');
 
-currentList.addItem(new ToDoItem('asdfghjkl')); // TEST ITEM
+currentList.addItem(new ToDoItem('Test Item')); // TEST ITEM
 lists.addTodoList(new List('Test List')); // TEST LIST
 
 printLists();
@@ -90,7 +90,12 @@ function printList() {
     currentList.listItems.forEach(toDoItem => {
         listHtml += `
         <div class="list-item">
-            <p>${toDoItem.text}</p>
+            ${toDoItem.text}
+            <div id="todoItemRemove">
+                <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
         `;
     });
@@ -134,11 +139,9 @@ function addTodoList(event) {
 
 function addItem(event) {
     if (event.key == 'Enter' || event.type == 'click') {
-        const itemName = document.getElementById('newListItem').value;
-        if (itemName) {
-            const newItem = new List(itemName);
-            lists.addItem(newItem);
-            currentList = newItem;
+        let text = document.getElementById('newListItem').value;
+        if (text) {
+            currentList.addItem(new ToDoItem(text));
             document.getElementById('newListItem').value = '';
             printList();
             printLists();
