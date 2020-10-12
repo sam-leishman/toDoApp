@@ -17,6 +17,9 @@ class List {
     addItem(item) {
         this.listItems.push(item);
     }
+    removeItem(listId) {
+        this.listItems = this.listItems.filter(list => list.id != listId);
+    }
 }
 
 class ToDoList {

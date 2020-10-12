@@ -20,6 +20,18 @@ main .row {
         margin-bottom: 20px;
     }
 
+    input {
+        background-color: colors.$orange-web;
+        border: 0;
+        border-right: 2px solid colors.$honeydew;
+        padding: 10px;
+    }
+
+    button {
+        background-color: colors.$orange-web;
+        border: 0;
+    }
+
     #todoLists {
         display: flex;
         flex-direction: column;
@@ -76,6 +88,19 @@ main .row {
             overflow-y: scroll;
             padding: 20px;
 
+            input {
+                background-color: colors.$tangerine;
+                border: 0;
+                border-right: 2px solid colors.$honeydew;
+                padding: 10px;
+                color: colors.$honeydew;
+            }
+
+            button {
+                background-color: colors.$tangerine;
+                border: 0;
+            }
+
             #todoItems {
                 display: flex;
                 flex-direction: column;
@@ -103,5 +128,15 @@ main .row {
                 }
             }
         }
+    }
+}
+
+.input-box {
+    border: 2px solid colors.$honeydew;
+    width: 100%;
+    display: flex;
+
+    input {
+        flex-grow: 3;
     }
 }

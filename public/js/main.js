@@ -1,22 +1,3 @@
-// ====================
-// Make list from array
-// ====================
-
-// let fruits = ["🍉", "🍌", "🍓", "🍎", "🍍", "🍋", "🍇"];
-// let fruitName = ["Watermelon", "Banana", "Strawberry", "Apple", "Pineapple", "Lemon", "Grape"];
-// let stuff = "<ul>";
-
-// for (let i = 0; i < fruits.length; i++) {
-//     stuff += "<li>" + fruits[i] + " " + fruitName[i] + "</li>";
-// }
-
-// stuff += "</ul>"
-
-// let fruitList = document.getElementById("fruit-list");
-// fruitList.innerHTML = stuff;
-
-
-
 // =========================
 // Today's Date
 // =========================
@@ -68,11 +49,10 @@ function getNewId() {
 const lists = new ToDoList();
 let currentList = new List('List 1');
 
-currentList.addItem(new ToDoItem('Test Item')); // TEST ITEM
-lists.addTodoList(new List('Test List')); // TEST LIST
-
-printLists();
-printLists();
+// currentList.addItem(new ToDoItem('Test Item')); // TEST ITEM
+// lists.addTodoList(new List('Test List')); // TEST LIST
+// printLists();
+// printLists();
 
 function printList() {
     let listHtml = '';
@@ -110,7 +90,7 @@ function printLists() {
         <div class="list">
             ${list.name}
             <div id="todoListRemove">
-                <button type="button" class="close" aria-label="Close">
+                <button type="button" class="close" aria-label="Close" onclick="removeItem()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -149,7 +129,12 @@ function addItem(event) {
     }
 }
 
-function selectChat(chatId) {
-    currentChat = chats.getChat(chatId);
-    printChat();
+function removeItem() {
+    document.getElementById('todoItems').innerHTML = '';
+    printList();
+}
+
+function selectList(listId) {
+    currentList = lists.getList(listId);
+    printList();
 }

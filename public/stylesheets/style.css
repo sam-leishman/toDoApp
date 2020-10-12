@@ -11,6 +11,16 @@ main .row {
   padding: 10px 0;
   margin-bottom: 20px;
 }
+.my-sidebar input {
+  background-color: #F49F0A;
+  border: 0;
+  border-right: 2px solid #E2FCEF;
+  padding: 10px;
+}
+.my-sidebar button {
+  background-color: #F49F0A;
+  border: 0;
+}
 .my-sidebar #todoLists {
   display: flex;
   flex-direction: column;
@@ -59,6 +69,17 @@ main .row {
   overflow-y: scroll;
   padding: 20px;
 }
+.my-page .to-do-list #listWindow input {
+  background-color: #F08700;
+  border: 0;
+  border-right: 2px solid #E2FCEF;
+  padding: 10px;
+  color: #E2FCEF;
+}
+.my-page .to-do-list #listWindow button {
+  background-color: #F08700;
+  border: 0;
+}
 .my-page .to-do-list #listWindow #todoItems {
   display: flex;
   flex-direction: column;
@@ -80,6 +101,15 @@ main .row {
 }
 .my-page .to-do-list #listWindow #todoItems #todoItemRemove {
   visibility: hidden;
+}
+
+.input-box {
+  border: 2px solid #E2FCEF;
+  width: 100%;
+  display: flex;
+}
+.input-box input {
+  flex-grow: 3;
 }
 
 /*# sourceMappingURL=style.css.map */
