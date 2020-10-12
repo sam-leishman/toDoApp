@@ -51,7 +51,7 @@ let currentList = new List('List 1');
 
 // currentList.addItem(new ToDoItem('Test Item')); // TEST ITEM
 // lists.addTodoList(new List('Test List')); // TEST LIST
-// printLists();
+// printList();
 // printLists();
 
 function printList() {
@@ -70,7 +70,9 @@ function printList() {
     currentList.listItems.forEach(toDoItem => {
         listHtml += `
         <div class="list-item">
-            ${toDoItem.text}
+            <span contenteditable="true">
+                ${toDoItem.text}
+            </span>
             <div id="todoItemRemove">
                 <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -87,10 +89,12 @@ function printLists() {
 
     lists.todos.forEach(list => {
         listsHtml += `
-        <div class="list">
-            ${list.name}
+        <div class="list" onclick="selectList(${list.id})">
+            <span contenteditable="true">
+                ${list.name}
+            </span>
             <div id="todoListRemove">
-                <button type="button" class="close" aria-label="Close" onclick="removeItem()">
+                <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -129,12 +133,7 @@ function addItem(event) {
     }
 }
 
-function removeItem() {
-    document.getElementById('todoItems').innerHTML = '';
-    printList();
-}
-
 function selectList(listId) {
-    currentList = lists.getList(listId);
-    printList();
+    currentList = lists.getTodoList(listId);
+    printLists();
 }

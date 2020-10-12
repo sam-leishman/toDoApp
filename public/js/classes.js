@@ -23,15 +23,14 @@ class List {
 }
 
 class ToDoList {
-    constructor(name) {
-        this.name = name;
+    constructor() {
         this.todos = [];
     }
     addTodoList(todo) {
         this.todos.push(todo);
     }
-    getTodoList(todoId) {
-        return this.todos.find(todo => todo.id == todoId);
+    getTodoList(listId) {
+        return this.todos.find(list => list.id == listId);
     }
     removeTodoList(todoId) {
         this.todos = this.todos.filter(todo => todo.id != todoId);

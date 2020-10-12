@@ -34,8 +34,10 @@
                     </div>
                     <div id="todoLists">
                         <!-- JavaScript HTML: -->
-                        <!-- <div class="list">
-                            List Name
+                        <!-- <div class="list" onclick="selectList(${list.id})">
+                            <span contenteditable="true">
+                                ${list.name}
+                            </span>
                             <div id="todoListRemove">
                                 <button type="button" class="close" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -62,9 +64,11 @@
                             <div id="todoItems">
                                 <!-- JavaScript HTML: -->
                                 <!-- <div class="list-item">
-                                    ${toDoItem.text}
+                                    <span contenteditable="true">
+                                        ${toDoItem.text}
+                                    </span>
                                     <div id="todoItemRemove">
-                                        <button type="button" class="close" aria-label="Close" onclick="removeItem()">
+                                        <button type="button" class="close" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
