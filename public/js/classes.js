@@ -1,6 +1,7 @@
 class ToDoItem {
     constructor(text) {
         this.text = text;
+        this.id = getNewId();
         this.completed = false;
     }
     setCompleted() {
@@ -17,8 +18,8 @@ class List {
     addItem(item) {
         this.listItems.push(item);
     }
-    removeItem(listId) {
-        this.listItems = this.listItems.filter(list => list.id != listId);
+    removeItem(taskId) {
+        this.listItems = this.listItems.filter(item => item.id != taskId);
     }
 }
 

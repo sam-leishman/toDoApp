@@ -93,10 +93,22 @@ main .row {
   justify-content: space-between;
   align-items: center;
 }
+.my-page .to-do-list #listWindow #todoItems .list-item .check-and-x {
+  display: flex;
+}
 .my-page .to-do-list #listWindow #todoItems .list-item:hover {
   box-shadow: 0px 0px 5px black;
 }
+.my-page .to-do-list #listWindow #todoItems .list-item:hover #todoItemCheck {
+  visibility: visible;
+}
 .my-page .to-do-list #listWindow #todoItems .list-item:hover #todoItemRemove {
+  visibility: visible;
+}
+.my-page .to-do-list #listWindow #todoItems #todoItemCheck {
+  visibility: hidden;
+}
+.my-page .to-do-list #listWindow #todoItems input[type=checkbox]:checked {
   visibility: visible;
 }
 .my-page .to-do-list #listWindow #todoItems #todoItemRemove {

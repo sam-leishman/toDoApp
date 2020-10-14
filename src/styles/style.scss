@@ -113,14 +113,30 @@ main .row {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+
+                    .check-and-x {
+                        display: flex;
+                    }
         
                     &:hover {
                         box-shadow: 0px 0px 5px black;
+
+                        #todoItemCheck {
+                            visibility: visible;
+                        }
             
                         #todoItemRemove {
                             visibility: visible;
                         }
                     }
+                }
+
+                #todoItemCheck {
+                    visibility: hidden;
+                }
+
+                input[type="checkbox"]:checked {
+                    visibility: visible;
                 }
         
                 #todoItemRemove {

@@ -69,14 +69,22 @@ function printList() {
     */
     currentList.listItems.forEach(toDoItem => {
         listHtml += `
-        <div class="list-item">
-            <span contenteditable="true">
-                ${toDoItem.text}
-            </span>
-            <div id="todoItemRemove">
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        <div id="${toDoItem.id}">
+            <div class="list-item">
+                <span contenteditable="true">
+                    ${toDoItem.text}
+                </span>
+                <div class="check-and-x">
+                    <div id="todoItemCheck">
+                        <input id="${toDoItem.id}" type="checkbox"/>
+                        <label for="${toDoItem.id}" class="tick js-tick"></label>
+                    </div>
+                    <div id="todoItemRemove">
+                        <button type="button" class="close" aria-label="Close" onclick="removeTask(${toDoItem.id})">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         `;
@@ -115,6 +123,9 @@ function addTodoList(event) {
             lists.addTodoList(newList);
             currentList = newList;
             document.getElementById('newListName').value = '';
+            document.getElementById('windowListName').innerHTML = `
+            <h2>${listName}</h2>
+            `;
             printList();
             printLists();
         }
@@ -133,7 +144,18 @@ function addItem(event) {
     }
 }
 
+function removeTask(taskId) {
+    document.getElementById(taskId).innerHTML = '';
+}
+
+function removeCompleted() {
+    if (document.getElementsByClassName('js-tick').checked = true) {
+        // ASDFHJSHL
+    }
+}
+
 function selectList(listId) {
     currentList = lists.getTodoList(listId);
+    printList();
     printLists();
 }
