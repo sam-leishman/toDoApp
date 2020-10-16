@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="public/stylesheets/style.css">
+    <!-- <link rel="stylesheet" href="public/stylesheets/style.css"> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -29,10 +29,21 @@
         <main>
             <div class="row">
                 <div class="my-sidebar col-md-3">
-                    <div class="lists">
-                        <h2>Lists</h2>
+                    <div class="all-tasks">
+                        <div class="lists-h2">
+                            <h2>Lists</h2>
+                        </div>
+                        <ul class="task-list">
+                            <li class="active-list">School</li>
+                            <li>Work</li>
+                        </ul>
+
+                        <form action="">
+                            <input type="text" class="new-list" placeholder="new list name" aria-label="new list name">
+                            <button class="btn list" aria-label="create new list">+</button>
+                        </form>
                     </div>
-                    <div id="todoLists">
+                    <!-- <div id="todoLists"> -->
                         <!-- JavaScript HTML: -->
                         <!-- <div class="${list.id}">
                             <div class="list" onclick="selectList(${list.id})">
@@ -46,25 +57,65 @@
                                 </div>
                             </div>
                         </div> -->
-                    </div>
+                    <!-- </div>
                     <div class="input-box">
                         <input id="newListName" onkeydown="addTodoList(event)">
                         <button onclick="addTodoList(event)">Add</button>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="my-page col-md-9">
-                    <div class="header">
-                        <div class="logo">ListApp</div>
+                <div class="todo-list col-md-9">
+                    <div class="todo-header">
+                        <h2 class="list-title">Homework</h2>
                         <div class="current-date">
                             <span id="weekday">Weekday</span>,
                             <span id="date">Date</span>
                             <span id="month">Month</span>
                         </div>
                     </div>
-                    <div class="to-do-list">
-                        <div id="listWindow">
+                    <div class="todo-body">
+                        <div class="tasks">
+                            <div class="task">
+                                <input type="checkbox" id="task-1">
+                                <label for="task-1">
+                                    <span class="custom-checkbox"></span>
+                                    Finish this freaking project
+                                </label>
+                            </div>
+                            <!-- /task-1 -->
+
+                            <div class="task">
+                                <input type="checkbox" id="task-2">
+                                <label for="task-2">
+                                    <span class="custom-checkbox"></span>
+                                    Task 2
+                                </label>
+                            </div>
+                            <!-- /task-2 -->
+
+                            <div class="task">
+                                <input type="checkbox" id="task-3">
+                                <label for="task-3">
+                                    <span class="custom-checkbox"></span>
+                                    Task 3
+                                </label>
+                            </div>
+                            <!-- /task-3 -->
+                        </div>
+
+                        <div class="new-task-creator">
+                            <form action="">
+                                <input type="text" class="new list" placeholder="new task name" aria-label="new task name">
+                                <button class="btn task" aria-label="create new task">+</button>
+                            </form>
+                        </div>
+
+                        <div class="delete-stuff">
+                            <button class="btn delete">Clear Completed Tasks</button>
+                            <button class="btn delete">Delete List</button>
+                        </div>
+                        <!-- <div>
                             <div id="windowListName"></div>
-                            <div id="todoItems">
+                            <div id="todoItems"> -->
                                 <!-- JavaScript HTML: -->
                                 <!-- <div id="${toDoItem.id}">
                                     <div class="list-item">
@@ -84,7 +135,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                            </div>
+                            <!-- </div>
                             <div class="input-box">
                                 <input id="newListItem" onkeydown="addItem(event)">
                                 <button class="button-add" onclick="addItem(event)">Add</button>
@@ -92,7 +143,7 @@
                         </div>
                         <div class="remove-completed">
                             <button onclick="removeCompleted()">Remove Completed</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
