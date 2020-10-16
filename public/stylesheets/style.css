@@ -170,9 +170,23 @@ main .row {
     }
 }
 */
+main .row {
+  height: 100vh;
+}
+
+.my-sidebar {
+  background-color: #F08700;
+  color: white;
+  padding-top: 20px;
+}
+
 body {
   margin: 0;
   background-color: #F08700;
+}
+
+.all-tasks {
+  padding: 0 20px;
 }
 
 .task-list {
@@ -217,7 +231,7 @@ form {
   transition: color 200ms;
 }
 .button.delete:hover {
-  color: #F08700;
+  color: #93E9BE;
 }
 
 .new {
@@ -244,6 +258,9 @@ form {
 .new.list {
   font-size: 1.1rem;
 }
+.new.list::placeholder {
+  color: white;
+}
 
 .new.task {
   margin-bottom: 0;
@@ -260,7 +277,8 @@ form {
 
 .todo-header {
   padding: 2rem;
-  background: #E2FCEF;
+  background: #F08700;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -289,7 +307,6 @@ form {
   display: inline-flex;
   align-items: center;
   position: relative;
-  margin-bottom: 1.25em;
 }
 
 .task {
@@ -321,12 +338,12 @@ form {
 
 .task:hover .custom-checkbox {
   transform: scale(1.2);
-  color: #F08700;
+  color: #93E9BE;
 }
 
 [type=checkbox]:checked + label .custom-checkbox {
-  background: #F08700;
-  border-color: #F08700;
+  background: #93E9BE;
+  border-color: #93E9BE;
 }
 
 [type=checkbox]:checked + label {

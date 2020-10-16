@@ -2,9 +2,10 @@
 // Color Scheme:
 // #F08700 Tangerine (white text)
 // #F49F0A Orange Web
-// #EFCA08 Yellow Munsell
 // #2A324B Space Cadet (dark text)
 // #E2FCEF Honeydew (light text)
+// #93E9BE Seafoam Green
+// #30323D Jet
 
 $spacer: 2rem;
 
@@ -181,12 +182,24 @@ main .row {
 }
 */
 
+main .row {
+    height: 100vh;
+}
+
+.my-sidebar {
+    background-color: colors.$tangerine;
+    color: white;
+    padding-top: 20px;
+}
+
 body {
     margin: 0;
     background-color: colors.$tangerine;
 }
 
-.all-tasks {}
+.all-tasks {
+    padding: 0 20px;
+}
 
 .task-list {
     line-height: 1.7;
@@ -232,7 +245,7 @@ form {
     transition: color 200ms;
 
     &:hover {
-        color: colors.$tangerine;
+        color: colors.$seafoam-green;
     }
 }
 
@@ -263,6 +276,10 @@ form {
 
 .new.list {
     font-size: 1.1rem;
+
+    &::placeholder {
+        color: white;
+    }
 }
 
 .new.task {
@@ -280,7 +297,8 @@ form {
 
 .todo-header {
     padding: $spacer;
-    background: colors.$honeydew;
+    background: colors.$tangerine;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -309,7 +327,6 @@ form {
     display: inline-flex;
     align-items: center;
     position: relative;
-    margin-bottom: 1.25em;
 }
 
 .task {
@@ -342,12 +359,12 @@ form {
 
 .task:hover .custom-checkbox {
     transform: scale(1.2);
-    color: colors.$tangerine;
+    color: colors.$seafoam-green;
 }
 
 [type="checkbox"]:checked + label .custom-checkbox {
-    background: colors.$tangerine;
-    border-color: colors.$tangerine;
+    background: colors.$seafoam-green;
+    border-color: colors.$seafoam-green;
 }
 
 [type="checkbox"]:checked + label {
