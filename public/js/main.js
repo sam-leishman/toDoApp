@@ -154,7 +154,8 @@ const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
 
-let lists = [];
+let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
+let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -163,6 +164,7 @@ newListForm.addEventListener('submit', e => {
     const list = createList(listName)
     newListInput.value = null;
     lists.push(list)
+    save();
     render();
 })
 
@@ -177,6 +179,9 @@ function render() {
         listElement.dataset.listId = list.id
         listElement.classList.add('list-name')
         listElement.innerText = list.name;
+        if (list.id === selectedListId) {
+            listElement.classList.add('active-list')
+        }
         listsContainer.appendChild(listElement)
     })
 }
