@@ -34,14 +34,16 @@
                     </div>
                     <div id="todoLists">
                         <!-- JavaScript HTML: -->
-                        <!-- <div class="list" onclick="selectList(${list.id})">
-                            <span contenteditable="true">
-                                ${list.name}
-                            </span>
-                            <div id="todoListRemove">
-                                <button type="button" class="close" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                        <!-- <div class="${list.id}">
+                            <div class="list" onclick="selectList(${list.id})">
+                                <span contenteditable="true">
+                                    ${list.name}
+                                </span>
+                                <div id="todoListRemove">
+                                    <button type="button" class="close" aria-label="Close" onclick="removeList(${list.id})">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                             </div>
                         </div> -->
                     </div>
@@ -69,18 +71,27 @@
                                         <span contenteditable="true">
                                             ${toDoItem.text}
                                         </span>
-                                        <div id="todoItemRemove">
-                                            <button type="button" class="close" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
+                                        <div class="check-and-x">
+                                            <div id="todoItemCheck">
+                                                <input id="${toDoItem.id}" type="checkbox"/>
+                                                <label for="${toDoItem.id}" class="tick js-tick"></label>
+                                            </div>
+                                            <div id="todoItemRemove">
+                                                <button type="button" class="close" aria-label="Close" onclick="removeTask(${toDoItem.id})">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div> -->
                             </div>
                             <div class="input-box">
                                 <input id="newListItem" onkeydown="addItem(event)">
-                                <button onclick="addItem(event)">Add</button>
+                                <button class="button-add" onclick="addItem(event)">Add</button>
                             </div>
+                        </div>
+                        <div class="remove-completed">
+                            <button onclick="removeCompleted()">Remove Completed</button>
                         </div>
                     </div>
                 </div>
@@ -90,6 +101,7 @@
 </body>
 <!-- JavaScript -->
 <script type="text/javascript" src="./public/js/classes.js"></script>
+<script type="text/javascript" src="./public/js/localstorage.js"></script>
 <script type="text/javascript" src="./public/js/main.js"></script>
 
 </html>

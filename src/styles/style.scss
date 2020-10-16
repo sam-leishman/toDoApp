@@ -27,9 +27,15 @@ main .row {
         padding: 10px;
     }
 
-    button {
+    .input-box button {
         background-color: colors.$orange-web;
         border: 0;
+
+        &:hover {
+            background-color: colors.$space-cadet;
+            color: colors.$honeydew;
+            border: 0;
+        }
     }
 
     #todoLists {
@@ -96,9 +102,15 @@ main .row {
                 color: colors.$honeydew;
             }
 
-            button {
+            .input-box button {
                 background-color: colors.$tangerine;
                 border: 0;
+
+                &:hover {
+                    background-color: colors.$space-cadet;
+                    color: colors.$honeydew;
+                    border: 0;
+                }
             }
 
             #todoItems {
@@ -113,6 +125,7 @@ main .row {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    width: 500px;
 
                     .check-and-x {
                         display: flex;
@@ -120,27 +133,34 @@ main .row {
         
                     &:hover {
                         box-shadow: 0px 0px 5px black;
-
-                        #todoItemCheck {
-                            visibility: visible;
-                        }
             
                         #todoItemRemove {
                             visibility: visible;
                         }
                     }
                 }
-
-                #todoItemCheck {
-                    visibility: hidden;
-                }
-
-                input[type="checkbox"]:checked {
-                    visibility: visible;
-                }
         
                 #todoItemRemove {
                     visibility: hidden;
+                }
+            }
+        }
+
+        .remove-completed {
+            display: flex;
+            justify-content: center;
+
+            button {
+                background-color: colors.$tangerine;
+                color: colors.$honeydew;
+                border: 2px solid colors.$space-cadet;
+                border-top: 0;
+                width: 100%;
+                height: 50px;
+
+                &:hover {
+                    background-color: colors.$space-cadet;
+                    border: 0;
                 }
             }
         }

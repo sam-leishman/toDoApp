@@ -33,7 +33,7 @@ class ToDoList {
     getTodoList(listId) {
         return this.todos.find(list => list.id == listId);
     }
-    removeTodoList(todoId) {
-        this.todos = this.todos.filter(todo => todo.id != todoId);
+    removeTodoList(listId) {
+        this.todos = this.todos.filter(list => list.id != listId);
     }
 }
