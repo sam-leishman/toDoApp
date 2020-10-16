@@ -33,39 +33,20 @@
                         <div class="lists-h2">
                             <h2>Lists</h2>
                         </div>
-                        <ul class="task-list">
-                            <li class="list-name active-list">School</li>
-                            <li class="list-name">Work</li>
+                        <ul class="task-list" data-lists>
+                            <!-- <li class="list-name active-list">School</li>
+                            <li class="list-name">Work</li> -->
                         </ul>
 
-                        <form action="">
-                            <input type="text" class="new list" placeholder="new list name" aria-label="new list name">
+                        <form action="" data-new-list-form>
+                            <input type="text" class="new list" data-new-list-input placeholder="new list name" aria-label="new list name">
                             <button class="button create" aria-label="create new list">+</button>
                         </form>
                     </div>
-                    <!-- <div id="todoLists"> -->
-                        <!-- JavaScript HTML: -->
-                        <!-- <div class="${list.id}">
-                            <div class="list" onclick="selectList(${list.id})">
-                                <span contenteditable="true">
-                                    ${list.name}
-                                </span>
-                                <div id="todoListRemove">
-                                    <button type="button" class="close" aria-label="Close" onclick="removeList(${list.id})">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div> -->
-                    <!-- </div>
-                    <div class="input-box">
-                        <input id="newListName" onkeydown="addTodoList(event)">
-                        <button onclick="addTodoList(event)">Add</button>
-                    </div> -->
                 </div>
                 <div class="todo-list col-md-9">
                     <div class="todo-header">
-                        <h2 class="list-title">Homework</h2>
+                        <h2 class="list-title">School</h2>
                         <div class="current-date">
                             <span id="weekday">Weekday</span>,
                             <span id="date">Date</span>
@@ -113,37 +94,6 @@
                             <button class="button delete">Clear Completed Tasks</button>
                             <button class="button delete">Delete List</button>
                         </div>
-                        <!-- <div>
-                            <div id="windowListName"></div>
-                            <div id="todoItems"> -->
-                                <!-- JavaScript HTML: -->
-                                <!-- <div id="${toDoItem.id}">
-                                    <div class="list-item">
-                                        <span contenteditable="true">
-                                            ${toDoItem.text}
-                                        </span>
-                                        <div class="check-and-x">
-                                            <div id="todoItemCheck">
-                                                <input id="${toDoItem.id}" type="checkbox"/>
-                                                <label for="${toDoItem.id}" class="tick js-tick"></label>
-                                            </div>
-                                            <div id="todoItemRemove">
-                                                <button type="button" class="close" aria-label="Close" onclick="removeTask(${toDoItem.id})">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            <!-- </div>
-                            <div class="input-box">
-                                <input id="newListItem" onkeydown="addItem(event)">
-                                <button class="button-add" onclick="addItem(event)">Add</button>
-                            </div>
-                        </div>
-                        <div class="remove-completed">
-                            <button onclick="removeCompleted()">Remove Completed</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
