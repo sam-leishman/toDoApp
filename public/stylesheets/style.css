@@ -1,145 +1,365 @@
+/*
 main .row {
-  height: 100vh;
+    height: 100vh;
 }
 
 .my-sidebar {
-  background-color: #F08700;
-  color: #E2FCEF;
-}
-.my-sidebar .lists {
-  border-bottom: 2px solid #E2FCEF;
-  padding: 10px 0;
-  margin-bottom: 20px;
-}
-.my-sidebar input {
-  background-color: #F49F0A;
-  border: 0;
-  border-right: 2px solid #E2FCEF;
-  padding: 10px;
-}
-.my-sidebar .input-box button {
-  background-color: #F49F0A;
-  border: 0;
-}
-.my-sidebar .input-box button:hover {
-  background-color: #2A324B;
-  color: #E2FCEF;
-  border: 0;
-}
-.my-sidebar #todoLists {
-  display: flex;
-  flex-direction: column;
-}
-.my-sidebar #todoLists .list {
-  font-size: 20px;
-  border: 1px solid #2A324B;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.my-sidebar #todoLists .list:hover {
-  box-shadow: 0px 0px 5px black;
-}
-.my-sidebar #todoLists .list:hover #todoListRemove {
-  visibility: visible;
-}
-.my-sidebar #todoLists #todoListRemove {
-  visibility: hidden;
+    background-color: colors.$tangerine;
+    color: colors.$honeydew;
+
+    .lists-h2 {
+        border-bottom: 2px solid colors.$honeydew;
+        padding: 10px 0;
+        margin-bottom: 20px;
+    }
+
+    input {
+        background-color: colors.$orange-web;
+        border: 0;
+        border-right: 2px solid colors.$honeydew;
+        padding: 10px;
+    }
+
+    .input-box button {
+        background-color: colors.$orange-web;
+        border: 0;
+
+        &:hover {
+            background-color: colors.$space-cadet;
+            color: colors.$honeydew;
+            border: 0;
+        }
+    }
+
+    #todoLists {
+        display: flex;
+        flex-direction: column;
+
+        .list {
+            font-size: 20px;
+            border: 1px solid colors.$space-cadet;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:hover {
+                box-shadow: 0px 0px 5px black;
+
+                #todoListRemove {
+                    visibility: visible;
+                }
+            }
+        }
+
+        #todoListRemove {
+            visibility: hidden;
+        }
+    }
 }
 
 .my-page {
-  background-color: #F49F0A;
-  color: #2A324B;
-}
-.my-page .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.my-page .header .logo {
-  font-size: 40px;
-  color: #E2FCEF;
-}
-.my-page .header .current-date {
-  font-size: 30px;
-}
-.my-page .to-do-list {
-  height: 500px;
-}
-.my-page .to-do-list #listWindow {
-  height: 100%;
-  border: 2px solid #2A324B;
-  overflow-y: scroll;
-  padding: 20px;
-}
-.my-page .to-do-list #listWindow input {
-  background-color: #F08700;
-  border: 0;
-  border-right: 2px solid #E2FCEF;
-  padding: 10px;
-  color: #E2FCEF;
-}
-.my-page .to-do-list #listWindow .input-box button {
-  background-color: #F08700;
-  border: 0;
-}
-.my-page .to-do-list #listWindow .input-box button:hover {
-  background-color: #2A324B;
-  color: #E2FCEF;
-  border: 0;
-}
-.my-page .to-do-list #listWindow #todoItems {
-  display: flex;
-  flex-direction: column;
-}
-.my-page .to-do-list #listWindow #todoItems .list-item {
-  font-size: 20px;
-  border: 1px solid #2A324B;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 500px;
-}
-.my-page .to-do-list #listWindow #todoItems .list-item .check-and-x {
-  display: flex;
-}
-.my-page .to-do-list #listWindow #todoItems .list-item:hover {
-  box-shadow: 0px 0px 5px black;
-}
-.my-page .to-do-list #listWindow #todoItems .list-item:hover #todoItemRemove {
-  visibility: visible;
-}
-.my-page .to-do-list #listWindow #todoItems #todoItemRemove {
-  visibility: hidden;
-}
-.my-page .to-do-list .remove-completed {
-  display: flex;
-  justify-content: center;
-}
-.my-page .to-do-list .remove-completed button {
-  background-color: #F08700;
-  color: #E2FCEF;
-  border: 2px solid #2A324B;
-  border-top: 0;
-  width: 100%;
-  height: 50px;
-}
-.my-page .to-do-list .remove-completed button:hover {
-  background-color: #2A324B;
-  border: 0;
+    background-color: colors.$orange-web;
+    color: colors.$space-cadet;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            font-size: 40px;
+            color: colors.$honeydew;
+        }
+
+        .current-date {
+            font-size: 30px;
+        }
+    }
+
+    .to-do-list {
+        height: 500px;
+
+        #listWindow {
+            height: 100%;
+            border: 2px solid colors.$space-cadet;
+            overflow-y: scroll;
+            padding: 20px;
+
+            input {
+                background-color: colors.$tangerine;
+                border: 0;
+                border-right: 2px solid colors.$honeydew;
+                padding: 10px;
+                color: colors.$honeydew;
+            }
+
+            .input-box button {
+                background-color: colors.$tangerine;
+                border: 0;
+
+                &:hover {
+                    background-color: colors.$space-cadet;
+                    color: colors.$honeydew;
+                    border: 0;
+                }
+            }
+
+            #todoItems {
+                display: flex;
+                flex-direction: column;
+
+                .list-item {
+                    font-size: 20px;
+                    border: 1px solid colors.$space-cadet;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 500px;
+
+                    .check-and-x {
+                        display: flex;
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 0px 5px black;
+
+                        #todoItemRemove {
+                            visibility: visible;
+                        }
+                    }
+                }
+
+                #todoItemRemove {
+                    visibility: hidden;
+                }
+            }
+        }
+
+        .remove-completed {
+            display: flex;
+            justify-content: center;
+
+            button {
+                background-color: colors.$tangerine;
+                color: colors.$honeydew;
+                border: 2px solid colors.$space-cadet;
+                border-top: 0;
+                width: 100%;
+                height: 50px;
+
+                &:hover {
+                    background-color: colors.$space-cadet;
+                    border: 0;
+                }
+            }
+        }
+    }
 }
 
 .input-box {
-  border: 2px solid #E2FCEF;
-  width: 100%;
+    border: 2px solid colors.$honeydew;
+    width: 100%;
+    display: flex;
+
+    input {
+        flex-grow: 3;
+    }
+}
+*/
+body {
+  margin: 0;
+  background-color: #F08700;
+}
+
+.task-list {
+  line-height: 1.7;
+  font-size: 1.2rem;
+  list-style: circle;
+  padding-left: 1.1em;
+}
+
+.list-name {
+  cursor: pointer;
+}
+.list-name:hover {
+  opacity: 0.7;
+}
+
+form {
   display: flex;
 }
-.input-box input {
-  flex-grow: 3;
+
+.button {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.button.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+  transition: opacity 250ms ease-in;
+}
+.button.create:hover {
+  opacity: 0.7;
+}
+
+.button.delete {
+  opacity: 0.7;
+  font-size: 1rem;
+  transition: color 200ms;
+}
+.button.delete:hover {
+  color: #F08700;
+}
+
+.new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  padding: 0.25em;
+  transition: border-bottom 150ms ease-in;
+  order: 2;
+}
+.new:focus {
+  border-bottom-width: 3px;
+}
+.new:focus::placeholder {
+  opacity: 0.15;
+}
+.new::placeholder {
+  opacity: 0.4;
+}
+
+.new.list {
+  font-size: 1.1rem;
+}
+
+.new.task {
+  margin-bottom: 0;
+}
+
+.active-list {
+  font-weight: 700;
+}
+
+.todo-list {
+  background-color: #F49F0A;
+  color: #2A324B;
+}
+
+.todo-header {
+  padding: 2rem;
+  background: #E2FCEF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin: 0 1em 0 0;
+}
+
+.current-date {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: 2rem;
+  position: relative;
+}
+
+[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+}
+
+.task label {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+.task {
+  position: relative;
+  margin-bottom: 1.25em;
+}
+.task::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+.custom-checkbox {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  margin-right: 0.75em;
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 25%;
+  transform: scale(1);
+  transition: transform 150ms ease-in-out;
+}
+
+.task:hover .custom-checkbox {
+  transform: scale(1.2);
+  color: #F08700;
+}
+
+[type=checkbox]:checked + label .custom-checkbox {
+  background: #F08700;
+  border-color: #F08700;
+}
+
+[type=checkbox]:checked + label {
+  opacity: 0.5;
+}
+
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 1.5em;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 150ms ease-in-out;
+}
+
+[type=checkbox]:checked + label::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.delete-stuff {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -35px;
+  color: #2A324B;
 }
 
 /*# sourceMappingURL=style.css.map */
