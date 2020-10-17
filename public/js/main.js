@@ -166,7 +166,7 @@ let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
 listsContainer.addEventListener('click', e => {
-    if (e.target.tagName.toLowerCase === 'li') {
+    if (e.target.tagName.toLowerCase() === 'li') {
         selectedListId = e.target.dataset.listId;
         save();
         render();
@@ -243,7 +243,7 @@ function render() {
 
 function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
-        const taskElement = document.importNode(taskTemplate.contentEditable, true)
+        const taskElement = document.importNode(taskTemplate.content, true)
         const checkbox = taskElement.querySelector('input')
         checkbox.id = task.id
         checkbox.checked = task.complete
