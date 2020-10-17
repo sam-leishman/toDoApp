@@ -157,6 +157,9 @@ const deleteListButton = document.querySelector('[data-delete-list-button]')
 const listDisplayContainer = document.querySelector('[data-list-display-container]')
 const listTitleElement = document.querySelector('[data-list-title]')
 const tasksContainer = document.querySelector('[data-tasks]')
+const taskTemplate = document.getElementById('task-template')
+const newTaskForm = document.querySelector('[data-new-task-form]')
+const newTaskInput = document.querySelector('[data-new-task-input]')
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
@@ -187,8 +190,24 @@ newListForm.addEventListener('submit', e => {
     render();
 })
 
+newTaskForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const taskName = newTaskInput.value;
+    if (taskName == null || taskName === '') return
+    const task = createTask(taskName)
+    newTaskInput.value = null;
+    const selectedList = lists.find(list => list.id === selectedListId)
+    selectedList.tasks.push(task)
+    save();
+    render();
+})
+
 function createList(name) {
     return { id: Date.now().toString(), name: name, tasks: [] }
+}
+
+function createTask(name) {
+    return { id: Date.now().toString(), name: name, complete: false }
 }
 
 function render() {
@@ -200,7 +219,22 @@ function render() {
     } else {
         listDisplayContainer.style.display = '';
         listTitleElement.innerText = selectedList.name
+        clearElement(tasksContainer);
+        renderTasks(selectedList);
     }
+}
+
+function renderTasks(selectedList) {
+    selectedList.tasks.forEach(task => {
+        const taskElement = document.importNode(taskTemplate.contentEditable, true)
+        const checkbox = taskElement.querySelector('input')
+        checkbox.id = task.id
+        checkbox.checked = task.complete
+        const label = taskElement.querySelector('label')
+        label.htmlFor = task.id
+        label.append(task.name)
+        tasksContainer.appendChild(taskElement)
+    })
 }
 
 function renderLists() {
