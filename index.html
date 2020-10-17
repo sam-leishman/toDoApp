@@ -44,9 +44,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="todo-list col-md-9">
+                <div class="todo-list col-md-9" data-list-display-container>
                     <div class="todo-header">
-                        <h2 class="list-title">School</h2>
+                        <h2 class="list-title" data-list-title>School</h2>
                         <div class="current-date">
                             <span id="weekday">Weekday</span>,
                             <span id="date">Date</span>
@@ -54,12 +54,12 @@
                         </div>
                     </div>
                     <div class="todo-body">
-                        <div class="tasks">
+                        <div class="tasks" data-tasks>
                             <div class="task">
                                 <input type="checkbox" id="task-1">
                                 <label for="task-1">
                                     <span class="custom-checkbox"></span>
-                                    Finish this freaking project
+                                    Finish this project
                                 </label>
                             </div>
                             <!-- /task-1 -->
@@ -92,7 +92,7 @@
 
                         <div class="delete-stuff">
                             <button class="button delete">Clear Completed Tasks</button>
-                            <button class="button delete">Delete List</button>
+                            <button class="button delete" data-delete-list-button>Delete List</button>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
     </div>
 </body>
 <!-- JavaScript -->
-<script type="text/javascript" src="./public/js/classes.js"></script>
+<!-- <script type="text/javascript" src="./public/js/classes.js"></script> -->
 <script type="text/javascript" src="./public/js/localstorage.js"></script>
 <script type="text/javascript" src="./public/js/main.js"></script>
 

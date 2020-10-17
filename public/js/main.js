@@ -153,13 +153,32 @@ function selectList(listId) {
 const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
+const deleteListButton = document.querySelector('[data-delete-list-button]')
+const listDisplayContainer = document.querySelector('[data-list-display-container]')
+const listTitleElement = document.querySelector('[data-list-title]')
+const tasksContainer = document.querySelector('[data-tasks]')
 
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
+listsContainer.addEventListener('click', e => {
+    if (e.target.tagName.toLowerCase === 'li') {
+        selectedListId = e.target.dataset.listId;
+        save();
+        render();
+    }
+})
+
+deleteListButton.addEventListener('click', e => {
+    lists = lists.filter(list => list.id !== selectedListId);
+    selectedListId = null;
+    save();
+    render();
+})
+
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
-    const listName = newListInput.nodeValue;
+    const listName = newListInput.value;
     if (listName == null || listName === '') return
     const list = createList(listName)
     newListInput.value = null;
@@ -174,6 +193,17 @@ function createList(name) {
 
 function render() {
     clearElement(listsContainer)
+    renderLists();
+    const selectedList = lists.find(list => list.id === selectedListId)
+    if (selectedListId == null) {
+        listDisplayContainer.style.display = 'none'
+    } else {
+        listDisplayContainer.style.display = '';
+        listTitleElement.innerText = selectedList.name
+    }
+}
+
+function renderLists() {
     lists.forEach(list => {
         const listElement = document.createElement('li')
         listElement.dataset.listId = list.id
