@@ -21,7 +21,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-    <title>Clever Title</title>
+    <title>Applist</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="todo-list col-md-9" data-list-display-container>
                     <div class="todo-header">
-                        <h2 class="list-title" data-list-title>School</h2>
+                        <h2 class="list-title" data-list-title>---</h2>
                         <div class="current-date">
                             <span id="weekday">Weekday</span>,
                             <span id="date">Date</span>
@@ -70,11 +70,16 @@
         </main>
     </div>
     <template id="task-template">
-        <div class="task">
-            <input type="checkbox">
-            <label>
-                <span class="custom-checkbox"></span>
-            </label>
+        <div class="containerForTask">
+            <div class="task">
+                <input type="checkbox">
+                <label>
+                    <span class="custom-checkbox"></span>
+                </label>
+                <button data-delete-task-button id="removeTask" class="close" aria-label="Remove Task">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </div>
     </template>
 </body>

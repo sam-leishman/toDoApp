@@ -162,6 +162,9 @@ const newTaskForm = document.querySelector('[data-new-task-form]')
 const newTaskInput = document.querySelector('[data-new-task-input]')
 const clearCompleteTasksButton = document.querySelector('[data-clear-complete-tasks-button]')
 
+const taskElement = document.importNode(taskTemplate.content, true)
+const deleteTaskButton = taskElement.querySelector('[data-delete-task-button]')
+
 let lists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedListId = localStorage.getItem(LOCAL_STORAGE_SELECTED_LIST_ID_KEY);
 
@@ -196,6 +199,11 @@ deleteListButton.addEventListener('click', e => {
     render();
 })
 
+deleteTaskButton.addEventListener('click', e => {
+    const selectedList = lists.find(list => list.id === selectedListId)
+    selectedList.tasks = selectedList.tasks.filter(task => task.id != e.target.id)
+})
+
 newListForm.addEventListener('submit', e => {
     e.preventDefault();
     const listName = newListInput.value;
@@ -227,6 +235,21 @@ function createTask(name) {
     return { id: Date.now().toString(), name: name, complete: false }
 }
 
+function removeTask() {
+    // const selectedList = lists.find(list => list.id === selectedListId)
+    // selectedList.tasks = selectedList.tasks.filter(task => !task.)
+    // document.getElementById(taskId).innerHTML = '';
+    var thing = document.getElementById(taskId);
+    if (thing == undefined || thing === '') {
+        return;
+    }
+    thing.parentElement.parentElement.innerHTML = '';
+    // document.getElementById(taskId).innerHTML = '';
+
+    save();
+    render(); // ?
+}
+
 function render() {
     clearElement(listsContainer)
     renderLists();
@@ -244,13 +267,64 @@ function render() {
 function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true)
+
+        // NEW STUFF =====
+        // const containerForTask = taskElement.getElementsByClassName('containerForTask')[0];
+        const containerForTask = taskElement.getElementById('containerForTask');
+        // const containerForTask = taskElement.firstElementChild;
+        // containerForTask.id = task.id;
+        const removeTaskButton = taskElement.getElementById('removeTask')
+        // removeTaskButton.onclick = task.delete = true;
+        // removeTaskButton.onclick = removeTask(task.id);
+        // ===============
+
+        const divthing = taskElement.querySelector('div.task');
+        // divthing.id = task.id;
+        const button = taskElement.querySelector('button');
+        button.addEventListener('click', e => {
+            var divtask = e.currentTarget.parentElement;
+            var inputelem = divtask.firstElementChild;
+            var container = divtask.parentElement;
+            // var thing = e.parentElement;
+            container.innerHTML = '';
+            const selectedList = lists.find(list => list.id === selectedListId)
+            selectedList.tasks = selectedList.tasks.filter(t => t.id != inputelem.id)
+            save();
+            // var thing = document.getElementById(e.target.id);
+            // if (thing == undefined || thing === '') {
+            //     return;
+            // }
+            // thing.parentElement.parentElement.innerHTML = '';
+        });
         const checkbox = taskElement.querySelector('input')
         checkbox.id = task.id
         checkbox.checked = task.complete
         const label = taskElement.querySelector('label')
         label.htmlFor = task.id
-        label.append(task.name)
+        label.appendChild
+        var nameSpan = document.createElement('span')
+        nameSpan.innerHTML = task.name;
+        nameSpan.contentEditable = true;
+        nameSpan.addEventListener("input", e => {
+            const id = e.currentTarget.parentElement.htmlFor;
+            const selectedList = lists.find(list => list.id === selectedListId)
+            const task = selectedList.tasks.filter(t => t.id === id)[0];
+            task.name = e.currentTarget.innerText;
+            save();
+        }, false);
+        label.appendChild(nameSpan)
         tasksContainer.appendChild(taskElement)
+        // const parentThingy = document.getElementById(task.id)
+        // const thingy = parentThingy.getElementsByTagName('button')
+        // thingy.addEventListener('click', e => {
+        //     var thing = e.parentElement.parentElement;
+        //     thing.innerHTML = '';
+        //     // var thing = document.getElementById(e.target.id);
+        //     // if (thing == undefined || thing === '') {
+        //     //     return;
+        //     // }
+        //     // thing.parentElement.parentElement.innerHTML = '';
+        // });
     })
 }
 
