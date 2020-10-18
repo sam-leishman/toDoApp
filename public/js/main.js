@@ -19,137 +19,6 @@ document.getElementById("month").innerText = monthName;
 
 
 
-/* OLD JAVASCRIPT
-// =========================
-// Create ID
-function getNewId() {
-    return (Math.random() + Math.random()) * 1000;
-}
-// =========================
-
-
-
-const lists = new ToDoList();
-let currentList = new List('List 1');
-
-function printItem() {
-    let listHtml = '';
-    /*
-    for (let i = 0; i < chat.length; i++) {
-        chatHtml += 
-        `
-        <div>
-            <p>${chat[i].text}</p>
-            <p>${chat[i].username}</p>
-        </div>
-        `;
-    }
-    */
-   /*
-    currentList.listItems.forEach(toDoItem => {
-        listHtml += `
-        <div id="${toDoItem.id}">
-            <input id="${toDoItem.id}" type="checkbox"/>
-            <label for="${toDoItem.id}" class="tick js-tick">
-                <div class="list-item">
-                    <span contenteditable="true">
-                        ${toDoItem.text}
-                    </span>
-                    <div id="todoItemRemove">
-                        <button type="button" class="close" aria-label="Close" onclick="removeTask(${toDoItem.id})">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            </label>
-        </div>
-        `;
-    });
-    document.getElementById("todoItems").innerHTML = listHtml;
-}
-
-function printLists() {
-    let listsHtml = '';
-
-    lists.todos.forEach(list => {
-        listsHtml += `
-        <div class="${list.id}">
-            <div class="list" onclick="selectList(${list.id})">
-                <span contenteditable="true">
-                    ${list.name}
-                </span>
-                <div id="todoListRemove">
-                    <button type="button" class="close" aria-label="Close" onclick="removeList(${list.id})">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        `;
-    });
-
-    document.getElementById('todoLists').innerHTML = listsHtml;
-}
-
-
-
-function addTodoList(event) {
-    if (event.key == 'Enter' || event.type == 'click') {
-        const listName = document.getElementById('newListName').value;
-        if (listName) {
-            const newList = new List(listName);
-            lists.addTodoList(newList);
-            currentList = newList;
-            document.getElementById('newListName').value = '';
-            document.getElementById('windowListName').innerHTML = `
-            <h2>${listName}</h2>
-            `;
-            printItem();
-            printLists();
-        }
-    }
-}
-
-function addItem(event) {
-    if (event.key == 'Enter' || event.type == 'click') {
-        let text = document.getElementById('newListItem').value;
-        if (text) {
-            currentList.addItem(new ToDoItem(text));
-            document.getElementById('newListItem').value = '';
-            printItem();
-            printLists();
-        }
-    }
-}
-
-function removeTask(taskId) {
-    document.getElementById(taskId).innerHTML = '';
-}
-
-function removeList(listId) {
-    document.getElementById(listId).innerHTML = '';
-}
-
-function removeCompleted(taskId) {
-    // if (document.getElementsByClassName('js-tick').checked = true) {
-    //     ToDoItem.completed = true;
-    //     if (ToDoItem.completed = true) {
-    //         document.getElementById(taskId).innerHTML = '';
-    //     }
-    // }
-}
-
-function selectList(listId) {
-    currentList = lists.getTodoList(listId);
-    // windowListName = list.name;
-    // document.getElementById('windowListName').innerHTML = `
-    // <h2>${windowListName}</h2>
-    // `;
-    printItem();
-    printLists();
-}
-*/
-
 const listsContainer = document.querySelector('[data-lists]')
 const newListForm = document.querySelector('[data-new-list-form]')
 const newListInput = document.querySelector('[data-new-list-input]')
@@ -235,21 +104,6 @@ function createTask(name) {
     return { id: Date.now().toString(), name: name, complete: false }
 }
 
-function removeTask() {
-    // const selectedList = lists.find(list => list.id === selectedListId)
-    // selectedList.tasks = selectedList.tasks.filter(task => !task.)
-    // document.getElementById(taskId).innerHTML = '';
-    var thing = document.getElementById(taskId);
-    if (thing == undefined || thing === '') {
-        return;
-    }
-    thing.parentElement.parentElement.innerHTML = '';
-    // document.getElementById(taskId).innerHTML = '';
-
-    save();
-    render(); // ?
-}
-
 function render() {
     clearElement(listsContainer)
     renderLists();
@@ -267,34 +121,15 @@ function render() {
 function renderTasks(selectedList) {
     selectedList.tasks.forEach(task => {
         const taskElement = document.importNode(taskTemplate.content, true)
-
-        // NEW STUFF =====
-        // const containerForTask = taskElement.getElementsByClassName('containerForTask')[0];
-        const containerForTask = taskElement.getElementById('containerForTask');
-        // const containerForTask = taskElement.firstElementChild;
-        // containerForTask.id = task.id;
-        const removeTaskButton = taskElement.getElementById('removeTask')
-        // removeTaskButton.onclick = task.delete = true;
-        // removeTaskButton.onclick = removeTask(task.id);
-        // ===============
-
-        const divthing = taskElement.querySelector('div.task');
-        // divthing.id = task.id;
         const button = taskElement.querySelector('button');
         button.addEventListener('click', e => {
             var divtask = e.currentTarget.parentElement;
             var inputelem = divtask.firstElementChild;
             var container = divtask.parentElement;
-            // var thing = e.parentElement;
             container.innerHTML = '';
             const selectedList = lists.find(list => list.id === selectedListId)
             selectedList.tasks = selectedList.tasks.filter(t => t.id != inputelem.id)
             save();
-            // var thing = document.getElementById(e.target.id);
-            // if (thing == undefined || thing === '') {
-            //     return;
-            // }
-            // thing.parentElement.parentElement.innerHTML = '';
         });
         const checkbox = taskElement.querySelector('input')
         checkbox.id = task.id
@@ -314,17 +149,6 @@ function renderTasks(selectedList) {
         }, false);
         label.appendChild(nameSpan)
         tasksContainer.appendChild(taskElement)
-        // const parentThingy = document.getElementById(task.id)
-        // const thingy = parentThingy.getElementsByTagName('button')
-        // thingy.addEventListener('click', e => {
-        //     var thing = e.parentElement.parentElement;
-        //     thing.innerHTML = '';
-        //     // var thing = document.getElementById(e.target.id);
-        //     // if (thing == undefined || thing === '') {
-        //     //     return;
-        //     // }
-        //     // thing.parentElement.parentElement.innerHTML = '';
-        // });
     })
 }
 
